@@ -1,6 +1,6 @@
 <?php
 
-namespace EventHomes\Api;
+namespace Ftxrc\Api;
 
 use Illuminate\Http\Response;
 
