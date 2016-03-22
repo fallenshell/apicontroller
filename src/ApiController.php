@@ -144,7 +144,7 @@ trait ApiController {
      */
     public function respond_raw($data, $headers = [])
     {   
-        return response()->json($data, $this->getStatusCode(), $headers, $options = $options=JSON_PRETTY_PRINT);
+        return response()->json($data, $this->getStatusCode(), $headers);
     }
 
     /**
