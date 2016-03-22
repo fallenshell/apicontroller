@@ -114,12 +114,37 @@ trait ApiController {
     /**
      * @param $data
      * @param array $headers
+     * @param  bool whether to prettyprint data or nah
      *
      * @return mixed
      */
-    public function respond($data, $headers = [])
-    {
-        return response()->json($data, $this->getStatusCode(), $headers);
+    public function respond($data, $headers = [], $prettyprint = true)
+    {   
+
+        $data = [
+            'count' => count($data),
+            'timestamp' => time(),
+            'results' => $data
+        ];  
+
+        if ($prettyprint == false) {
+            $options = false;
+        } else {
+            $options = JSON_PRETTY_PRINT;
+        }
+
+        return response()->json($data, $this->getStatusCode(), $headers, $options);
+    }
+
+    /**
+     * Return just the array without prettyprint or std_fmt.
+     * @param  [array]  $data        [array to be converted]
+     * @param  array   $headers       [extra headers]
+     * @return [string]               [JSON given]
+     */
+    public function respond_raw($data, $headers = [])
+    {   
+        return response()->json($data, $this->getStatusCode(), $headers, $options = $options=JSON_PRETTY_PRINT);
     }
 
     /**
