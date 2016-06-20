@@ -1,4 +1,7 @@
 # Laravel 5 / Lumen 5 Api Controller
+
+## Fork of EventHomes' APIController trait. Has a few fixes and customizations that make it more useful, like prettyprinting and raw responses.
+
 A simple api controller helper trait, compatible with Lumen 5+ and Laravel 5+. The goal of this project is to make creating API projects simple. Inspired by Jeffrey Way (https://www.laracasts.com)
 
 ## Installation
